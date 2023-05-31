@@ -1,1 +1,83 @@
-/* You can add global styles to this file, and also import other style files */
+@use "@angular/material" as mat;
+@import "~@angular/material/theming";
+
+@include mat-core();
+
+$mitigram-palette: (
+  50: #EBFAFF,
+  100: #D7F2FB,
+  200: #ACE1F3,
+  300: #98D9EF,
+  400: #7ECFEA,
+  500: #2CABD3,
+  600: #1E94BA,
+  700: #177998,
+  800: #0F586F,
+  900: #084153,
+  A100: #e07171,
+  A200: #d74747,
+  A400: #eb0000,
+  A700: #d10000,
+  contrast: (
+    50: #042732,
+    100: #042732,
+    200: #042732,
+    300: #042732,
+    400: #042732,
+    500: #EBFAFF,
+    600: #EBFAFF,
+    700: #EBFAFF,
+    800: #EBFAFF,
+    900: #EBFAFF,
+    A100: #000000,
+    A200: #ffffff,
+    A400: #ffffff,
+    A700: #ffffff,
+  ),
+);
+
+$accent-palette: (
+  50: #FFFFFF,
+  100: #EFEFEF,
+  200: #DBDBDB,
+  300: #D3D3D3,
+  400: #C6C6C6,
+  500: #838383,
+  600: #5D5D5D,
+  700: #4D4D4D,
+  800: #373737,
+  900: #181818,
+  A100: #e07171,
+  A200: #d74747,
+  A400: #eb0000,
+  A700: #d10000,
+  contrast: (
+    50: #373737,
+    100: #373737,
+    200: #373737,
+    300: #373737,
+    400: #373737,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #ffffff,
+    A400: #ffffff,
+    A700: #ffffff,
+  ),
+);
+
+$primary: mat-palette($mitigram-palette, 500, 700, 900);
+$accent: mat-palette($accent-palette, 500, 700, 900);
+
+$theme: mat-light-theme($primary, $accent);
+@include angular-material-theme($theme);
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.mat-form-field-appearance-outline .mat-form-field-prefix, .mat-form-field-appearance-outline .mat-form-field-suffix  {
+  top: 0 !important;
+}

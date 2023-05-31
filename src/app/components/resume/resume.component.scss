@@ -1,0 +1,24 @@
+
+.list-container {
+  padding: 16px;
+  & .mail-card {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+
+    mat-icon{
+      cursor: pointer;
+    }
+  }
+}
+
+.send-invitaions {
+  width: 30%;
+  position: absolute;
+  font-size: 18px;
+  bottom: 0!important;
+  padding:4px;
+  text-transform: uppercase;
+}

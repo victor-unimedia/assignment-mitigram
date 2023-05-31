@@ -1,0 +1,56 @@
+<div class="add-external">
+  <button mat-raised-button color="primary" (click)="openDialog()">
+    Add External Email
+  </button>
+</div>
+<form [formGroup]="filterForm">
+  <mat-form-field appearance="outline">
+    <input
+      matInput
+      placeholder="Search contacts"
+      formControlName="searchedText"
+    />
+  </mat-form-field>
+</form>
+<ng-container *ngIf="!noResults; else noresults">
+  <ng-container *ngFor="let group of groups">
+    <mat-expansion-panel
+      [expanded]="
+        isAllSelected(group) || isPartialSelected(group) || isSearching
+      "
+      *ngIf="searchGroupsWithUsers[group].length > 0"
+    >
+      <mat-expansion-panel-header>
+        <mat-checkbox
+          (click)="$event.stopPropagation()"
+          (change)="selectGroup($event, group)"
+          [indeterminate]="isPartialSelected(group)"
+          [checked]="isAllSelected(group)"
+          >{{ group }}</mat-checkbox
+        >
+      </mat-expansion-panel-header>
+      <div
+        class="user-element"
+        *ngFor="let user of searchGroupsWithUsers[group]"
+      >
+        <mat-checkbox
+          (change)="selectUser($event, group, user)"
+          [checked]="user.isSelected"
+        ></mat-checkbox>
+        <img [src]="user?.picture" alt="" />
+        <div class="info">
+          <div class="name">
+            <span>{{ user?.name?.first }} {{ user?.name?.last }}</span>
+          </div>
+          <div class="email">{{ user?.email }}</div>
+        </div>
+      </div>
+    </mat-expansion-panel>
+  </ng-container>
+</ng-container>
+<ng-template #noresults>
+  <div class="no-results">
+    There are no results with this terms, please try other words or add an external email
+  </div>
+</ng-template>
+

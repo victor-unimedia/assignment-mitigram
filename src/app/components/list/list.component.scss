@@ -1,0 +1,32 @@
+.add-external {
+  display: flex;
+  padding: 16px 8px;
+  justify-content: end;
+
+}
+
+form {
+  & mat-form-field {
+    width: 100%;
+  }
+}
+mat-expansion-panel {
+  margin-bottom: 8px;
+}
+.user-element {
+  height: 52px;
+  display: flex;
+  margin-left: 32px;
+  border-bottom: 1px solid rgb(215, 212, 212);
+  align-items: center;
+  & > img {
+    height: 38px;
+    margin-right: 12px;
+    margin-left: 12px;
+  }
+
+
+  &:first-child {
+    border-top: 1px solid rgb(215, 212, 212);
+  }
+}

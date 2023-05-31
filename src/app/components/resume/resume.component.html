@@ -1,0 +1,24 @@
+<div class="list-container">
+  <h2 *ngIf="usersList.length > 0 || externals.length > 0">Selected users</h2>
+  <div class="mail-card" *ngFor="let user of usersList">
+    <span>{{ user?.email }}</span>
+    <button (click)="deleteUser(user)" mat-mini-fab color="warn">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+  <div class="mail-card" *ngFor="let user of externals">
+    <span>{{ user }}</span>
+    <button (click)="deleteExternalUser(user)" mat-mini-fab color="warn">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+</div>
+<button
+  class="send-invitaions"
+  mat-raised-button
+  color="primary"
+  *ngIf="usersList.length > 0 || externals.length > 0"
+  (click)="sendInvitation()"
+>
+  Send invitations
+</button>
